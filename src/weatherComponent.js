@@ -7,8 +7,52 @@ import Snow  from './weather_icons/snow'
 import RainAndSun  from './weather_icons/rainAndSun'
 
   // https://openweathermap.org/weather-conditions
-function WeatherApp(props) {
-  const { weatherCode } = props
+const WeatherApp = React.createClass({
+
+  getInitialState() {
+    return {tempScale: 'Celsius'}
+  },
+
+  switchTempScale () {
+    var { tempScale } = this.state
+    if (tempScale === 'Celsius') {
+      this.setState({tempScale: 'Fahrenheit'})
+    } else {
+      this.setState({tempScale: 'Celsius'})
+    }
+  },
+
+  render(props) {
+    const { weatherCode, userLocation, tempKelvin } = this.props
+    const Icon = getIcon(weatherCode)
+    const temp = this.state.tempScale === 'Celsius' ? convertToCelsius(tempKelvin) : convertToFahrenheit(tempKelvin)
+
+    return (
+      <div>
+        <h1>{ userLocation }</h1>
+        <h1> { temp } </h1>
+        {Icon}
+      </div>
+    )
+  }
+})
+
+
+
+
+export default WeatherApp
+
+function convertToCelsius(tempKelvin) {
+  var tempCelsius = tempKelvin
+  return tempCelsius + 'C°'
+}
+
+function convertToFahrenheit(tempKelvin) {
+  var tempFahrenheit = tempKelvin
+  return tempFahrenheit + 'F°'
+}
+
+function getIcon(weatherCode) {
   if (weatherCode <= 232 ) {
     // thunder
     return <Thunder/>
@@ -40,8 +84,4 @@ function WeatherApp(props) {
   } else {
     return <h1>¯\_(ツ)_/¯</h1>
   }
-
 }
-
-
-export default WeatherApp

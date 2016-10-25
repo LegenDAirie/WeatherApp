@@ -6,7 +6,10 @@ import Weather from './weatherComponent'
 
 function success (json) {
   var weatherData = JSON.parse(json)
-  render(weatherData.weather[0].id)
+  var tempKelvin = weatherData.main.temp
+  var weatherCode = weatherData.weather[0].id
+  var userLocation = weatherData.name
+  render({ weatherCode, userLocation, tempKelvin })
 }
 
 var site = 'http://api.openweathermap.org/data/2.5/weather?'
@@ -19,9 +22,13 @@ Lib.ajax.getJSON({url: 'http://freegeoip.net/json/'}, function(jsonString) {
   Lib.ajax.getJSON({url: site + geoLocation + id}, success)
 })
 
-function render(weatherCode) {
+function render({ weatherCode, userLocation, tempKelvin }) {
   ReactDOM.render(
-    <Weather weatherCode={weatherCode}/>,
+    <Weather
+      weatherCode={ weatherCode }
+      userLocation={ userLocation }
+      tempKelvin={ tempKelvin }
+    />,
     document.getElementById('root')
   )
 }
