@@ -43,13 +43,15 @@ const WeatherApp = React.createClass({
 export default WeatherApp
 
 function convertToCelsius(tempKelvin) {
-  var tempCelsius = tempKelvin
-  return tempCelsius + 'C°'
+  // [°C] = [K] − 273.15
+  var tempCelsius = tempKelvin - 273.15
+  return Math.floor(tempCelsius) + 'C°'
 }
 
 function convertToFahrenheit(tempKelvin) {
-  var tempFahrenheit = tempKelvin
-  return tempFahrenheit + 'F°'
+  // [°F] = [K] × 9/5 − 459.67
+  var tempFahrenheit = tempKelvin * 9/5 - 459.67
+  return Math.floor(tempFahrenheit) + 'F°'
 }
 
 function getIcon(weatherCode) {
