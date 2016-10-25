@@ -1,0 +1,45 @@
+{
+  "name": "webpack_minimal_",
+  "version": "1.0.0",
+  "description": "minimalist setup to use es2015, jsx, and linting.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --progress --colors --watch",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourSenchou/webpack_minimal_.git"
+  },
+  "keywords": [
+    "webpack",
+    "react",
+    "reactjs",
+    "jsx",
+    "minimal",
+    "es2015",
+    "linting"
+  ],
+  "author": "Airiel D. Salvatore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourSenchou/webpack_minimal_/issues"
+  },
+  "homepage": "https://github.com/yourSenchou/webpack_minimal_#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.2.0",
+    "webpack": "^1.13.2",
+    "webpack-validator": "^2.2.7"
+  },
+  "dependencies": {
+    "jQuery": "^1.7.4",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
