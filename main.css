@@ -33,7 +33,7 @@ p { margin: 1.375rem 0; }
   display: inline-block;
   width: 12em;
   height: 10em;
-  font-size: 3em; /* control icon size here */
+  font-size: 2em; /* control icon size here */
 }
 
 .cloud {
@@ -88,7 +88,7 @@ p { margin: 1.375rem 0; }
   margin: -1.25em;
   background: currentColor;
   border-radius: 50%;
-  box-shadow: 0 0 0 0.375em #fff;
+  box-shadow: 0 0 0 0.375em #bb0;
   animation: spin 12s infinite linear;
 }
 .rays {
@@ -99,9 +99,9 @@ p { margin: 1.375rem 0; }
   width: 0.375em;
   height: 1.125em;
   margin-left: -0.1875em;
-  background: #fff;
+  background: #bb0;
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em #bb0;
 }
 .rays:before,
 .rays:after {
@@ -114,9 +114,9 @@ p { margin: 1.375rem 0; }
   height: 1.125em;
   transform: rotate(60deg);
   transform-origin: 50% 3.25em;
-  background: #fff;
+  background: #bb0;
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em #bb0;
 }
 .rays:before {
   transform: rotate(120deg);
@@ -294,8 +294,8 @@ p { margin: 1.375rem 0; }
     opacity: 0.2;
   }
   50% {
-    color: #0cf;
-    background: #0cf;
+    color: #bb0;
+    background: #bb0;
     opacity: 1;
   }
   55% {
