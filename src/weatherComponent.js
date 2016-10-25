@@ -6,7 +6,6 @@ import Thunder  from './weather_icons/thunder'
 import Snow  from './weather_icons/snow'
 import RainAndSun  from './weather_icons/rainAndSun'
 
-  // https://openweathermap.org/weather-conditions
 const WeatherApp = React.createClass({
 
   getInitialState() {
@@ -22,7 +21,7 @@ const WeatherApp = React.createClass({
     }
   },
 
-  render(props) {
+  render() {
     const { weatherCode, userLocation, tempKelvin } = this.props
     const Icon = getIcon(weatherCode)
     const temp = this.state.tempScale === 'Celsius' ? convertToCelsius(tempKelvin) : convertToFahrenheit(tempKelvin)
@@ -55,6 +54,7 @@ function convertToFahrenheit(tempKelvin) {
 }
 
 function getIcon(weatherCode) {
+  // https://openweathermap.org/weather-conditions
   if (weatherCode <= 232 ) {
     // thunder
     return <Thunder/>
