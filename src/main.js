@@ -21,7 +21,6 @@ Lib.ajax.getJSON({url: 'http://freegeoip.net/json/'}, function(jsonString) {
 
 function render(weatherCode) {
   ReactDOM.render(
-    // getComponent(weatherCode),
     <Weather weatherCode={weatherCode}/>,
     document.getElementById('root')
   )
