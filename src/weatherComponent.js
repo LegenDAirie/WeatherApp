@@ -26,12 +26,12 @@ const WeatherApp = React.createClass({
     const { weatherCode, userLocation, tempKelvin } = this.props
     const Icon = getIcon(weatherCode)
     const temp = this.state.tempScale === 'Celsius' ? convertToCelsius(tempKelvin) : convertToFahrenheit(tempKelvin)
-
+    const style = {color: '#0cf'}
     return (
       <div>
         <h1>{ userLocation }</h1>
-        <h1> { temp } </h1>
-        {Icon}
+        <h1 style={ style } onClick={ this.switchTempScale }> { temp } </h1>
+        { Icon }
       </div>
     )
   }
@@ -45,13 +45,13 @@ export default WeatherApp
 function convertToCelsius(tempKelvin) {
   // [°C] = [K] − 273.15
   var tempCelsius = tempKelvin - 273.15
-  return Math.floor(tempCelsius) + 'C°'
+  return Math.floor(tempCelsius) + ' C°'
 }
 
 function convertToFahrenheit(tempKelvin) {
   // [°F] = [K] × 9/5 − 459.67
   var tempFahrenheit = tempKelvin * 9/5 - 459.67
-  return Math.floor(tempFahrenheit) + 'F°'
+  return Math.floor(tempFahrenheit) + ' F°'
 }
 
 function getIcon(weatherCode) {
@@ -82,6 +82,10 @@ function getIcon(weatherCode) {
   } else if (weatherCode === 800) {
     //sunny
     return <Sunny/>
+
+  } else if (weatherCode <= 804) {
+    //cloudy
+    return <Cloudy/>
 
   } else {
     return <h1>¯\_(ツ)_/¯</h1>
