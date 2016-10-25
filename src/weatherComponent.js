@@ -25,7 +25,7 @@ const WeatherApp = React.createClass({
     const { weatherCode, userLocation, tempKelvin } = this.props
     const Icon = getIcon(weatherCode)
     const temp = this.state.tempScale === 'Celsius' ? convertToCelsius(tempKelvin) : convertToFahrenheit(tempKelvin)
-    const style = {color: '#0cf'}
+    const style = { color: '#0cf' }
     return (
       <div>
         <h1>{ userLocation }</h1>
